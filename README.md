@@ -1,0 +1,12 @@
+# Python 入門・応用(silicon valley 酒井 潤さん)
+- Python3の基礎である入門コース
+- 今後のアプリケーション開発に役立つためのテクニック
+- database access (SQLite, MySQL, MongoDB, SQLAlchemy, memcached, Hbase, neo4j etc)
+- WEB(Flask, socket, RPC etc)
+- インフラ自動化(Fabric, Ansible)
+- 並列化(スレッド、マルチプロセス)
+- テスト(Unittest, pytest, Tox, Selenium, etc)
+- 暗号化(pycrypto, hashlib)、グラフィック(turtle, Tkinter)
+- データ解析(numpy, pandas, matplotlib, scikit-learn
+- )キューイングシステム(ZeroMQ, Celery)
+- 非同期処理(asyncio)などのPythonを使った応用編
