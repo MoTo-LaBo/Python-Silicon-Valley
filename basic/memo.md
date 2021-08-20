@@ -1,3 +1,12 @@
+## code
+    # python file 実行(terminal)
+    control + command + P
+
+    # terminal へ移動
+    control + command + T
+
+    # file 切り替え
+    command + P
 ## data 構造
 ### 値渡しと参照私
 - 値渡し(int:整数)

@@ -21,7 +21,7 @@ y = math.log2(10)
 
 print(y)
 
-print(help(math))
+# print(help(math))
 
 # 文字列
 s = 'test'
@@ -109,7 +109,7 @@ print(to_split)
 x = ' '.join(to_split)
 print(x)
 
-print(help(list))
+# print(help(list))
 
 i = [1, 2, 3, 4, 5]
 
