@@ -732,3 +732,175 @@ print(s)
 
 s = {i for i in range(10) if i % 2 == 0}
 print(s)
+
+
+# ---------- generator 集合内包表記 ----------
+def g():
+    for i in range(10):
+        yield i
+
+
+g = g()
+# print(type(g))
+# print(next(g))
+
+"""
+パレンティス()で記述する tuple になるのではないか？
+これは generator になる
+tuple としたい場合は、()の前に tuple型と宣言する
+"""
+g = (i for i in range(10))
+# print(type(g))
+# print(g)
+# print(next(g))
+# print(next(g))
+# print(next(g))
+# print(next(g))
+
+for x in g:
+    print(x)
+
+
+# tuple にしたい場合は ()の前に tuple と記述する
+# この場合は tuple 型になる
+g = tuple(i for i in range(10) if i % 2 == 0)
+
+print(g)
+
+
+# ---------- 名前空間とスコープ ----------
+animal = 'cat'
+
+
+def f():
+    print(animal)
+    # animal= 'dog'
+    # print('after', animal)
+
+
+f()
+# print(animal)
+"""
+function 内からグローバル変数を出力する事はできる
+
+function 内(ローカル内)で 変数宣言をする前に print してしまっているので
+local(function内)には animal というobjectは有りません(定義・宣言)
+されていませんとなる -> error になる
+"""
+
+
+def f():
+    animal = 'dog'
+    print('after', animal)
+
+
+f()
+print('global', animal)
+
+"""
+local のスコープ範囲内で宣言・定義すれば、global とは違う animal として
+local(function内)で扱っている事になる
+
+global の animal を local(function内)から書き換えたい場合は
+下記のように global animal と記述する
+"""
+
+
+def f():
+    global animal
+    animal = 'dog'
+    print('after', animal)
+
+
+f()
+print('global', animal)
+
+
+# 宣言・定義したものを確認する関数
+
+def f():
+    animal = 'dog'
+    print('local', locals())
+
+
+f()
+print('global', globals())
+
+
+# ---------- 例外処理 ----------
+l = [1, 2, 3]
+i = 5
+
+try:
+    l[i]
+except:
+    print("Don't worry")
+
+print("last")
+
+"""
+try と except の中で、何か exception(例外)が起きたら
+次の code を実行してくださいという program
+「例外が発生しても program を終了させない」
+try except で error をキャッチして次の code に移させるようにする
+"""
+
+l = [1, 2, 3]
+i = 5
+
+try:
+    () + l
+except IndexError as ex:
+    print("Don't worry: {}".format(ex))
+except NameError as ex:
+    print(ex)
+except Exception as ex:
+    print('othor:{}'.format(ex))
+else:
+    print('done')
+finally:
+    print('clean up')
+
+
+"""
+上記のように error の原因を表示させる事もできる
+例外処理を上記のように追加してフィルターのようにもできる
+as 〇〇 で　error の内容も出力できる
+大枠が Base Exception のそ下が Exception
+何がくるか分からない場合は、Exception を指定する。
+全ては Exception から派生している
+
+pyhton の code 記述では、上記のように訳の分からない exception を
+cat して次の code に移行するというのは、あまり良い coding ではない
+上記はあくまで、機能を確認する為の一例である事を理解すること
+
+else : except で何も問題なく抜けれた場合に実行される
+
+finally : try except で何が起きても最後に実行という指示
+error が有っても、無くても必ず最後に program は実行される
+"""
+
+
+# ---------- 独自例外処理 ----------
+# raise IndexError('test error')
+
+class UppercaseError(Exception):
+    pass
+
+
+def check():
+    words = ['APPLE', 'orange', 'banana']
+    for word in words:
+        if word.isupper():
+            raise UppercaseError(word)
+
+
+try:
+    check()
+except UppercaseError as exc:
+    print('This is my fault. Go next')
+
+"""
+Exception : 一番大きな例外処理の object を継承するという意味
+自分達の独自の例外処理を行うことにより開発効率が上がる
+"""
