@@ -1,4 +1,4 @@
-# Python 入門・応用(silicon valley 酒井 潤さん)
+# Python 入門・応用(silicon valley)
 - Python3の基礎である入門コース
 - 今後のアプリケーション開発に役立つためのテクニック
 - database access (SQLite, MySQL, MongoDB, SQLAlchemy, memcached, Hbase, neo4j etc)
