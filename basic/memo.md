@@ -7,6 +7,12 @@
 
     # file 切り替え
     command + P
+
+    # 改行増やす
+    ctr + o
+
+    # 改行削除
+    ctr + p
 ## data 構造
 ### 値渡しと参照私
 - 値渡し(int:整数)
