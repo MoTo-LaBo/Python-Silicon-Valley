@@ -1,0 +1,11 @@
+# App 1
+
+# 1. venv
+python3 -m venv app
+
+# 2.  venv 起動
+source app/bin/activate
+
+# 3. 仮想環境から出る
+deactivate
+
