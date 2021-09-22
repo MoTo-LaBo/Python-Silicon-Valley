@@ -34,3 +34,8 @@ jupyterlab_git/labextension
 # OSX files
 .DS_Store
 .vscode
+
+project
+python_programming_demo_app-0.0.1
+python_programming_demo_app-0.0.1.tar.gz
+python_programming_demo_app-0.0.1.zip
